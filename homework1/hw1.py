@@ -3,67 +3,73 @@
 # Ryan Christopher
 
 # Imports
-import math
-import random
+from timeit import default_timer as time
+import sys
 
 # Functions
-##def binarySearch():
+def binarySearch(num, data):
+    high = len(data)
+    low = 0
+    count = 1
 
+    while(low <= high):
+        mid = (low+high)//2
 
-##def getData():
+        if (int(num) > data[mid]):
+            low = mid+1
+        elif (int(num) < data[mid]):
+            high = mid-1      
+        else:
+            return mid
 
-def printHML(h, m, l):
-    print("High: ", h)
-    print("Mid: ", m)
-    print("Low: ", l)
+        if (count < 5):
+            printPointers(high, low, count)
+        count+=1
 
+    return -1
 
-def main():
-    #fileName, number = input("Enter the filename a number. Format: (filename, number)").split(", ")
-    
-    # Get FileName and Number
-    fileName = input("Enter the name of the data file: ")
-    number = input("Enter the number to search for: ")
-
-    #Get Data
-    f = open(fileName, "r")
+def getData(name):
+    f = open(name, "r")
     fileData = f.read()
     f.close()
 
-    #data = []
-    data = fileData.split(" ")
-    data.pop()
+    dataString = fileData.split(" ")
+    dataString.pop()
 
-    high = len(data)
-    mid = high//2
-    low = 0
-    print(data[mid])
-    print(len(data))
-    printHML(high, mid, low)
+    data = []
+    for num in dataString:
+        data.append(int(num))
 
-    hold = 1
-    while(hold < 10):
-        print("data[mid] = ", data[mid])
-        if (number > data[mid]):
-            low = mid+1
-            mid = (high+low)//2
-            print("more")
-            printHML(high, mid, low)
-        elif (number < data[mid]):
-            high = mid-1
-            mid = (high+low)//2
-            print("less")
-            printHML(high, mid, low)
-        elif ((number == data[mid]) or (low == mid == high)):
-            print("exit")
-            hold = 0
-        hold+=1
+    return data
+
+def printPointers(h, l, count):
+    print("Iteration ", count)
+    print("High Pointer: ", h)
+    print("Low Pointer: ", l)
+
+def main():
+    # Get FileName and Number as user input
+    # fileName = input("Enter the name of the data file: ")
+    # number = int(input("Enter the number to search for: "))
+
+    mainStart = time()
+
+    # Get Command Line Arguments
+    fileName = sys.argv[1]
+    number = sys.argv[2]
+
+    #Get Data
+    data = getData(fileName)
     
-    if (number == data[mid]):
-        index = mid
-    else:
-        index = -1
+    # Binary Search
+    searchStart = time()
+    index = binarySearch(number, data)
+    searchEnd = time()
 
-    print(index)
+    # Print Output
+    print("Index: ", index)
+    mainEnd = time()
+    print("Algorithm Time: ", searchEnd - searchStart)
+    print("All Time: ", mainEnd - mainStart)
 
 main()

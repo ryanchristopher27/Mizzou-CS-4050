@@ -81,7 +81,7 @@ def main():
     # Print Output
     print("Index: ", index)
     mainEnd = time() # End of all time
-    print("Algorithm Time: ", searchEnd - searchStart)
-    print("All Time: ", mainEnd - mainStart)
+    print("Algorithm Time: ", (searchEnd - searchStart)*1000, "ms")
+    print("All Time: ", (mainEnd - mainStart)*1000, "ms")
 
 main()

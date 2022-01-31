@@ -2,71 +2,35 @@
 # Homework 1 Graphs
 # Ryan Christopher
 
+# Code references from: 
+# https://towardsdatascience.com/linear-regression-using-least-squares-a4c3456e8570
+
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 plt.rcParams['figure.figsize'] = (12.0, 9.0)
 
-# data1.txt
-# X = 2
-# # value 19
-# Y = 3.710999997565523
-# plt.scatter(X, Y)
-# # value 225
-# Y = 7.124399999156594
-# plt.scatter(X, Y)
-# # value 705
-# Y = 9.210800024447963
-# plt.scatter(X, Y)
 
-# # data2.txt
-# X = 3
-# # value 128
-# Y = 5.337500013411045
-# plt.scatter(X, Y)
-# # value 5756
-# Y = 6.731899979058653
-# plt.scatter(X, Y)
-# # value 9982
-# Y = 6.823100004112348
-# plt.scatter(X, Y)
+plt.xlabel("Input Size (log10)")
 
-# # data3.txt
-# X = 4
-# # value 1997
-# Y = 10.722000006353483
-# plt.scatter(X, Y)
-# # value 20680
-# Y = 9.312599984696135 
-# plt.scatter(X, Y)
-# # value 23887
-# Y = 11.721499991836026
-# plt.scatter(X, Y)
+# Algorithm Time
+# X = [2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5]
+# Y = [3.2217999978456646, 6.444300001021475, 8.300800021970645, 
+#     4.623900022124872, 5.972200015094131, 5.963800009340048, 
+#     6.993400020292029, 5.489499977556989, 8.692000003065914,
+#     6.010700017213821, 7.458700012648478, 6.7952999961562455]
+# plt.title("Algo_Time vs. Input Size")
+# plt.ylabel("Algorithm Time")
 
-# # data4.txt
-# X = 5
-# # value 68189
-# Y = 32.35559997847304
-# plt.scatter(X, Y)
-# # value 921111
-# Y = 34.17219998664223 
-# plt.scatter(X, Y)
-# # value 945099
-# Y = 36.92770001362078
-# plt.scatter(X, Y)
 
-# data = pd.read_csv('data.csv')
-# print(data)
-# dict = [{2: 3.710999997565523, 2: 7.124399999156594, 2: 9.210800024447963, 3: 5.337500013411045, 3: 6.731899979058653, 3: 6.823100004112348, 4: 10.722000006353483, 4: 9.312599984696135, 4: 11.721499991836026, 5: 32.35559997847304, 5: 34.17219998664223, 5: 36.92770001362078}]
-
-# data = pd.DataFrame(dict)
-# X = data.iloc[[0]]
-# Y = data.iloc[[1]]
+# All Time
 X = [2, 2, 2, 3, 3, 3, 4, 4, 4, 5, 5, 5]
 Y = [3.710999997565523, 7.124399999156594, 9.210800024447963, 
     5.337500013411045, 6.731899979058653, 6.823100004112348, 
     10.722000006353483, 9.312599984696135, 11.721499991836026,
     32.35559997847304, 34.17219998664223, 36.92770001362078]
+plt.title("All_Time vs. Input Size")
+plt.ylabel("All Time")
 
 plt.scatter(X, Y)
 

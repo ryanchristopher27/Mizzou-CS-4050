@@ -52,14 +52,15 @@ def BFS(sID, list, nNode):
         # print("L", i, ":")
         for j in range(nNode):
             if (level[j] == i):
-                temp.append(j+1)
+                temp.append(str(j+1))
                 # print(j)
-        print("L"+ str(i) + ":" + str(temp))
+        print("L"+ str(i) + ": " + ', '.join(temp))
         temp.clear()
 
 
 # Main
 def main():
+    startTime = time()
     nNode = sys.argv[1]
     sID = sys.argv[2]
     filename = sys.argv[3]
@@ -67,7 +68,8 @@ def main():
     list = readFile(filename)
 
     BFS(int(sID)-1, list, int(nNode))
-
+    endTime = time()
+    print("All Time: ", (endTime - startTime)*1000, "ms")
 
 
 

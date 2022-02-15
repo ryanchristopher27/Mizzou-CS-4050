@@ -28,7 +28,7 @@ def BFS(sID, list, nNode):
     while q:
         vis = q[0]
 
-        print(vis)
+        # print(vis)
 
         q.pop(0)
 
@@ -36,24 +36,26 @@ def BFS(sID, list, nNode):
             # print(list[vis][i])
             # print(visited[i])
             if ((int(list[vis][i]) == 1) and (not visited[i])):
-                print("found: ", i)
+                # print("found: ", i)
                 q.append(i)
 
                 visited[i] = True
                 level[i] = level[vis] + 1
                 count = level[i]
 
-    print("count: ", count)
+    # print("count: ", count)
 
-    for i in range(nNode):
-        print(" ", i, " -->", level[i])
-
+    # for i in range(nNode):
+    #     print(" ", i, " -->", level[i])
+    temp = []
     for i in range(count+1):
-        print("L", i, ":")
+        # print("L", i, ":")
         for j in range(nNode):
             if (level[j] == i):
-                print(j)
-        
+                temp.append(j+1)
+                # print(j)
+        print("L"+ str(i) + ":" + str(temp))
+        temp.clear()
 
 
 # Main
